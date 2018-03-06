@@ -38,14 +38,14 @@ The Signing CA's certificate is `signing-ca.crt`.
 cp signing-ca.crt ../signing-ca
 ```
 
-(Optional) Strip the text part from the signing CA's certificate.
+Strip the text part from the signing CA's certificate for later use.
 
 ```shell
 cd ../signing-ca
 ./01_strip_crt_text.sh
 ```
 
-Now, you are all set for signing server/client certificates.
+Now you are all set for signing server/client certificates.
 
 ## Creating Server/Client Certificate
 
@@ -104,7 +104,6 @@ Please enter the following 'extra' attributes
 to be sent with your certificate request
 A challenge password []:
 An optional company name []:
-
 ```
 
 - Copy the CSR to the Signing CA's directory.
@@ -115,7 +114,7 @@ cp certs/example.csr FreeBSD-Private-CA/signing-ca
 
 ### Signing CSR by Singing CA
 
-Change into the Signing CA's directory and execute `01_sign_csr_server.sh` for a server certificate or `01_sign_csr_client.sh` for a client certificate.
+Change into the Signing CA's directory and execute `01_sign_csr_server.sh` for a server certificate, or `01_sign_csr_client.sh` for a client certificate.
 
 ```shell
 cd FreeBSD-Private-CA/signing-ca
@@ -124,7 +123,7 @@ cd FreeBSD-Private-CA/signing-ca
 ./01_sign_csr_client.sh example (for client cert)
 ```
 
-The server/client's certificate is `example.crt`, and `example.crt.full` is a full-chain certificate including both server/client's and signing ca's certificates'
+The server/client's certificate is `example.crt`. `example.crt.full` is a full-chain certificate including both server/client's and signing ca's certificates.
 
 ## Revoking Server/Client Certificate
 
@@ -153,8 +152,7 @@ Choose reason of revocation... (0-7):
 
 ### Revoking specified certificate...
 Using configuration from signing-ca.cnf
-Enter pass phrase for ./private/signing-ca.key:
+Enter pass phrase for ./private/signing-ca.key:<passphrase>
 Revoking Certificate 4F48D09643300C499DA6F6F3707FAE94.
 Data Base Updated
-
 ```
