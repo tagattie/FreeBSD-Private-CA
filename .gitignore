@@ -1,0 +1,13 @@
+*~
+*.csr
+*.crt
+*.crt.notext
+*.crt.full
+*.key
+*.crl
+*.log
+/**/certs/
+/**/crl/
+/**/db/
+/**/newcerts/
+/**/private/
