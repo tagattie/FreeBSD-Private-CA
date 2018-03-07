@@ -11,7 +11,7 @@ CA_NAME="signing-ca"
 CA_CONF=${CA_NAME}.cnf
 # CA_KEY=private/${CA_NAME}.key
 # CA_CSR=${CA_NAME}.csr
-# CA_CRT=${CA_NAME}.crt
+CA_CRT=${CA_NAME}.crt
 # CA_CRL=crl/${CA_NAME}.crl
 
 if [ $# -ne 1 ]; then
@@ -32,5 +32,15 @@ openssl ca \
         -out "${TOPDIR}/${CERT_NAME}.crt" \
         -md sha512 \
         -extensions client_ext
+
+echo
+echo "### Stripping text part from the certificate..."
+openssl x509 \
+        -in "${TOPDIR}/${CERT_NAME}.crt" \
+        -out "${TOPDIR}/${CERT_NAME}.crt.notext"
+
+echo
+echo "### Concatenating the certificates to make a full-chain certificate..."
+cat "${TOPDIR}/${CERT_NAME}.crt.notext" ${CA_CRT}.notext > "${CERT_NAME}.crt.full"
 
 exit 0
