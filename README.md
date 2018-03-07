@@ -8,6 +8,25 @@ git clone https://github.com/tagattie/FreeBSD-Private-CA.git
 cd FreeBSD-Private-CA
 ```
 
+## Edit CA configurations
+
+First, you would like to make some changes to CA configurations. Open the following two files with a text editor and make changes to fit for your needs.
+
+- `root-ca/root-ca.cnf`
+- `signing-ca/signing-ca.cnf`
+
+At line 276 of those files, there is `[ name_constraints ]` part which allows CAs to issue certificates for only specified (and sub-)domains. In this example, a (signing) CA can only issue certificates for `example.org`, `example.com`, `www.example.org`, `www.example.com`, etc.
+
+``` conf
+[ name_constraints ]
+permitted;DNS.0	= example.org
+permitted;DNS.1	= example.com
+excluded;IP.0	= 0.0.0.0/0.0.0.0
+excluded;IP.1	= 0:0:0:0:0:0:0:0/0:0:0:0:0:0:0:0
+```
+
+Additionally, you may want to change default names in `[ req_distinguished_name ]` part as well.
+
 ## Setup Root CA
 
 ```shell
