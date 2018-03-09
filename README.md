@@ -68,7 +68,7 @@ cd ../signing-ca
 
 Now you are all set for signing server/client certificates.
 
-## Creating Server/Client Certificate
+## Creating server/client certificate
 
 If you would like to use FreeBSD's default OpenSSL configuration directory (`/etc/ssl`), please copy the shell scripts and the config file into it.
 
@@ -146,9 +146,9 @@ cd FreeBSD-Private-CA/signing-ca
 
 The server/client's certificate is `example.crt`. `example.crt.full` is a full-chain certificate including both server/client's and signing ca's certificates.
 
-## Revoking Server/Client Certificate
+## Revoking server/client certificate
 
-Change into the signing CA's directory and execute `01_revoke_crt.sh`.
+Change into the root CA or signing CA's directory in which certificate you would like to revoke is stored and execute `01_revoke_crt.sh`. To revoke a certificate, you must know the certificate's serial number.
 
 ```shell
 cd FreeBSD-Private-CA/signing-ca
@@ -177,3 +177,14 @@ Enter pass phrase for ./private/signing-ca.key:<passphrase>
 Revoking Certificate 4F48D09643300C499DA6F6F3707FAE94.
 Data Base Updated
 ```
+
+## Generating CRL
+
+Change into the root CA or signing CA's directory and execute `01_generate_crl.sh`.
+
+```shell
+cd FreeBSD-Private-CA/signing-ca
+./01_generate_crl.sh
+```
+
+A CRL file named `root-ca.crl` or `signing-ca.crl` will be generated in `crl` directory.
