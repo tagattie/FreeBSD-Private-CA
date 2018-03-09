@@ -4,19 +4,20 @@ export LANG=C
 export PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin
 
 BASEDIR=$(cd "$(dirname "$0")" && pwd)
-ROOTCA_TOP=${BASEDIR}
+TOPDIR=${BASEDIR}
 
-# NAME="signing-ca"
+# CA_NAME="signing-ca"
 
-# ROOTCA_CONF=${NAME}.cnf
-# ROOTCA_KEY=private/${NAME}.key
-# ROOTCA_CSR=${NAME}.csr
-# ROOTCA_CRT=${NAME}.crt
-# ROOTCA_CRL=crl/${NAME}.crl
+# CA_CONF=${CA_NAME}.cnf
+# CA_KEY=private/${CA_NAME}.key
+# CA_CSR=${CA_NAME}.csr
+# CA_CRT=${CA_NAME}.crt
+# CA_CRL=crl/${CA_NAME}.crl
 
-cd "${ROOTCA_TOP}" || exit 1
+cd "${TOPDIR}" || exit 1
 
-echo "Deleteing all files of Root CA..."
+echo
+echo "### Deleteing all files of Signing CA..."
 rm -rf certs crl db newcerts private
 rm -f -- *.csr *.crt
 

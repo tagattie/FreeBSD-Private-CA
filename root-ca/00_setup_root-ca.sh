@@ -56,6 +56,7 @@ openssl ca \
         -md sha512 \
         -selfsign \
         -extensions v3_ca
+
 # echo "### Stripping text part of the certificate..."
 # openssl x509 \
 #         -in ${CA_CRT} \

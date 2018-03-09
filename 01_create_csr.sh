@@ -30,7 +30,6 @@ CERT_NAME=$1
 if [ $SAN = 1 ]; then
     echo
     echo "Please specifiy subject alternative name(s) separated by space."
-#    echo "Type Ctrl-D when finished."
     read -r ALTNAMES
     if [ -z "${ALTNAMES}" ]; then
         echo "SANs can not be empty. Exiting..."

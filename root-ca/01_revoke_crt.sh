@@ -43,7 +43,7 @@ case ${REASON_NO} in
     6) REASON=certificateHold ;;
     7) REASON=removeFromCRL ;;
     *)
-        echo "Wrong reason. Exiting..."
+        echo "No such reason. Exiting..."
         exit 1 ;;
 esac
 
