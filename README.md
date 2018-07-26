@@ -17,7 +17,7 @@ First, you would like to make some changes to CA configurations. Open the follow
 
 ~~At line 276 of those files, there is `[ name_constraints ]` part which allows CAs to issue certificates for only specified (and sub-)domains. In this example, a (signing) CA can only issue certificates for `example.org`, `example.com`, `www.example.org`, `www.example.com`, etc.~~
 
-**Note**: In my environment, certificates signed by a CA with nameConstraints seem to produce a certification veritification error. So nameConstrains is currently commented out in those configuration files.
+**Note**: In my environment, certificates signed by a CA with nameConstraints seem to produce a certification verification error. So nameConstrains is currently commented out in those configuration files.
 
 ```conf
 [ name_constraints ]
