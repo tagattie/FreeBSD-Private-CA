@@ -1,6 +1,17 @@
 # FreeBSD-Private-CA
 Scripts for creating and managing a two-tier simple private CA for FreeBSD.
 
+___
+
+This repository is associated with the following series of blog posts (in Japanese).
+
+- [FreeBSDでプライベート認証局(CA)を構築する - まえがき](https://blog.c6h12o6.org/post/freebsd-private-ca-intro/)
+- [FreeBSDでプライベート認証局(CA)を構築する - 本編](https://blog.c6h12o6.org/post/freebsd-private-ca-setup/)
+- [FreeBSDのプライベート認証局(CA)で証明書を発行する](https://blog.c6h12o6.org/post/freebsd-private-ca-cert/)
+- [FreeBSDのプライベート認証局(CA)で証明書を失効させる](https://blog.c6h12o6.org/post/freebsd-private-ca-revoke/)
+
+___
+
 ## Checkout
 
 ```shell
